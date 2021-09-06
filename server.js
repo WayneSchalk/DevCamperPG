@@ -1,5 +1,6 @@
 const express = require("express");
 const dotenv = require("dotenv");
+const errorHandler = require("./middleware/error");
 //Local variables
 dotenv.config({ path: "./config/config.env" });
 const colors = require("colors");
@@ -23,6 +24,7 @@ const entities = require("./routes/entities");
 // Mount Routers
 
 app.use("/api/v1/entities", entities);
+app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
 
