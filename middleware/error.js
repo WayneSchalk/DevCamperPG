@@ -1,5 +1,5 @@
 const errorHandler = (err, req, res, next) => {
-
+  // TODO: Handle errors Send responses based on database errors
 
   res
     .status(err.statusCode || 500)

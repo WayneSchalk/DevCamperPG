@@ -18,6 +18,6 @@ const syncDB = async () => {
   }
 };
 
-// syncDB();
+syncDB();
 
 module.exports = db;

@@ -2,12 +2,21 @@ const db = require("../config/DB/dbConnect");
 const Entity = require("../models/Entities");
 const ErrorResponse = require("../utils/errorResponse");
 const asyncHandler = require("../middleware/async");
+const { Op } = require("sequelize");
 
 // @desc Get all entities in the
 // @route GET /api/v1/entities
 // @access public
 
 exports.getAllEntities = asyncHandler(async (req, res) => {
+  // let query;
+
+  // let queryString = JSON.stringify(req.query);
+
+  // var cleanString = queryString.replace(/[|&;$%@"<>()+{},]/g, "");
+
+  // let search = { attributes: cleanString.split(":") };
+
   const entities = await Entity.findAll();
   if (!entities) {
     return next(new ErrorResponse(`No Entities not found`, 404));
